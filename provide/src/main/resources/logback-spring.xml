@@ -158,11 +158,12 @@
     <logger name="com.ibatis.common.jdbc.SimpleDataSource" value="DEBUG" />    
     <logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG"/>    
     <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" value="DEBUG" />     -->
-      
+    <!-- 打印该包下所有的sql语句 -->
+     <logger name="com.zqdl.mapper" level="DEBUG" />
       
       
     <!-- root级别   DEBUG -->  
-    <root level="debug">  
+    <root level="INFO">  
         <!-- 控制台输出 -->  
         <appender-ref ref="STDOUT" />  
         <!-- 文件输出 -->  
