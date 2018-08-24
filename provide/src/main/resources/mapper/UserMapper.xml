@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqdl.mapper.UserMapper">
+	
+	<insert id="saveUser" parameterType="com.zqdl.entity.User">
+		INSERT INTO USER
+		(ID,NAME,AGE) VALUES(#{id, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{age, jdbcType=INTEGER})
+	</insert>
+	
+	<delete id="deleteUserById" parameterType="com.zqdl.entity.User">
+		DELETE FROM 
+			USER
+		WHERE
+			ID = #{id, jdbcType=VARCHAR}
+	</delete>
+	
+	<update id="editUser" parameterType="com.zqdl.entity.User">
+		UPDATA
+			USER    
+		SET
+			NAME = #{name, jdbcType=VARCHAR},
+			AGE = #{age, jdbcType=VARCHAR}
+		WHERE
+			ID = #{id, jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryUserList" resultType="com.zqdl.entity.User">
+		SELECT 
+			ID id,NAME name,AGE age
+		FROM
+			USER
+	</select>
+	
+</mapper>
