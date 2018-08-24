@@ -1,8 +1,12 @@
 package com.zqdl.service;
 
+import java.util.List;
+
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.zqdl.entity.User;
 
 @FeignClient("demo-provide")
 public interface FeignClientService {
@@ -11,6 +15,6 @@ public interface FeignClientService {
 	String demoString();
 	
 	@RequestMapping("user/queryList")
-	String queryUserList();
+	List<User> queryUserList();
 	
 }

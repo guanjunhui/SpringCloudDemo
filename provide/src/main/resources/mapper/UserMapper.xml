@@ -4,19 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zqdl.mapper.UserMapper">
 	
-	<insert id="saveUser" parameterType="com.zqdl.entity.User">
+	<insert id="saveUser" parameterType="user">
 		INSERT INTO USER
 		(ID,NAME,AGE) VALUES(#{id, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{age, jdbcType=INTEGER})
 	</insert>
 	
-	<delete id="deleteUserById" parameterType="com.zqdl.entity.User">
+	<delete id="deleteUserById" parameterType="user">
 		DELETE FROM 
 			USER
 		WHERE
 			ID = #{id, jdbcType=VARCHAR}
 	</delete>
 	
-	<update id="editUser" parameterType="com.zqdl.entity.User">
+	<update id="editUser" parameterType="user">
 		UPDATA
 			USER    
 		SET
@@ -26,7 +26,7 @@
 			ID = #{id, jdbcType=VARCHAR}
 	</update>
 	
-	<select id="queryUserList" resultType="com.zqdl.entity.User">
+	<select id="queryUserList" resultType="user">
 		SELECT 
 			ID id,NAME name,AGE age
 		FROM

@@ -1,5 +1,6 @@
 package com.zqdl.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zqdl.entity.User;
 import com.zqdl.service.FeignClientService;
 
 @Controller
@@ -24,7 +26,7 @@ public class DemoController {
 	
 	@ResponseBody
 	@RequestMapping("queryUserList")
-	public String queryUserList() {
+	public List<User> queryUserList() {
 		return feignClientService.queryUserList();
 	}
 	
@@ -32,6 +34,12 @@ public class DemoController {
 	public String index(Map<String, Object> map) {
 		map.put("user", feignClientService.queryUserList());
 		return "index";
+	}
+	
+	@RequestMapping("user")
+	public String user(Map<String, Object> map) {
+		map.put("user", feignClientService.queryUserList());
+		return "user";
 	}
 	
 }
