@@ -17,4 +17,7 @@ public interface FeignClientService {
 	@RequestMapping("user/queryList")
 	List<User> queryUserList();
 	
+	@RequestMapping("user/saveUser")
+	String saveUser(User user);
+	
 }

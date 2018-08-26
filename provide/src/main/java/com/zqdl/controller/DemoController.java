@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
-	@RequestMapping(value="demo",method=RequestMethod.POST)
+	@RequestMapping(value="demo",method=RequestMethod.GET)
 	public String demo() {
-		return "SpringCloudProviderDemo";
+		String json = "SpringCloudProviderDemo";
+		int num = 1/0;
+		return json;
 	}
 	
 }
