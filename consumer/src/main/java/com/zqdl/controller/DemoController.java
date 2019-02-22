@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zqdl.entity.User;
 import com.zqdl.service.FeignClientService;
 
@@ -38,7 +40,12 @@ public class DemoController {
 	
 	@RequestMapping("user")
 	public String user(Map<String, Object> map) {
-		map.put("user", feignClientService.queryUserList());
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			map.put("user", mapper.writeValueAsString(feignClientService.queryUserList()));
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
 		return "user";
 	}
 	

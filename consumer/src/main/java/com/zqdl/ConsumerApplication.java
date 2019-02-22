@@ -30,6 +30,7 @@ public class ConsumerApplication {
 	 * 		1)使用@EnableFeignClients注解:使用该注解时,要创建一个service(名字没有约束)-->FeignClientService,该service在类名上使用注解@FeignClient("demo-provide")
 	 * 			该注解的作用是在eureka上根据应用名称查找应用
 	 * 		2)在service下创建接口方法,应使用@RequestMapping注解,value值就是想要访问服务对应的地址,不用写根地址
+	 * 
 	 * 		3)这个方法一个应用只能写一个service,即@FeignClient("demo-provide"),这个注解中的value只能出现一次,创建多个service,使用该注解value相同时,
 	 * 			启动报错,服务被占用
 	 * 2.Ribbon
